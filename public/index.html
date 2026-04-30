@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Task Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="toast" class="toast hidden"></div>
+
+    <main id="auth-screen" class="auth-shell hidden">
+      <section class="auth-card">
+        <div class="brand-row">
+          <div class="logo">TT</div>
+          <div>
+            <h1>Team Task Manager</h1>
+            <p>Projects, team tasks, progress tracking, and RBAC.</p>
+          </div>
+        </div>
+
+        <div class="auth-tabs">
+          <button class="tab active" data-auth-tab="login">Login</button>
+          <button class="tab" data-auth-tab="signup">Signup</button>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <label>Email <input name="email" type="email" value="admin@example.com" required /></label>
+          <label>Password <input name="password" type="password" value="Admin@1234" required /></label>
+          <button class="primary-btn" type="submit">Login</button>
+          <p class="hint">Try admin@example.com / Admin@1234 or member@example.com / Member@1234</p>
+        </form>
+
+        <form id="signup-form" class="auth-form hidden">
+          <label>Name <input name="name" type="text" placeholder="Your name" required /></label>
+          <label>Email <input name="email" type="email" placeholder="you@example.com" required /></label>
+          <label>Password <input name="password" type="password" placeholder="Minimum 8 characters" required /></label>
+          <button class="primary-btn" type="submit">Create account</button>
+          <p class="hint">New accounts are created as Members. The first account in an empty database becomes Admin.</p>
+        </form>
+      </section>
+    </main>
+
+    <main id="app-screen" class="app-shell hidden">
+      <aside class="sidebar">
+        <div class="brand-row sidebar-brand">
+          <div class="logo">TT</div>
+          <div>
+            <h2>Team Tasks</h2>
+            <p id="role-pill"></p>
+          </div>
+        </div>
+        <nav class="nav">
+          <button data-page="dashboard" class="nav-link active">Dashboard</button>
+          <button data-page="projects" class="nav-link">Projects</button>
+          <button data-page="tasks" class="nav-link">All Tasks</button>
+          <button data-page="team" class="nav-link">Team</button>
+        </nav>
+        <div class="sidebar-footer">
+          <p id="user-info"></p>
+          <button id="logout-btn" class="ghost-btn">Logout</button>
+        </div>
+      </aside>
+
+      <section class="content-shell">
+        <header class="topbar">
+          <div>
+            <h1 id="page-title">Dashboard</h1>
+            <p id="page-subtitle">Track team progress and overdue work.</p>
+          </div>
+          <button id="refresh-btn" class="secondary-btn">Refresh</button>
+        </header>
+        <section id="content" class="content"></section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
